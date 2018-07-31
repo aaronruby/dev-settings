@@ -197,9 +197,9 @@ nnoremap g; g;zz
 " Removing scrollbars
 if has("gui_running")
     set guitablabel=%-0.12t%M
-    set guioptions-=T
+    "set guioptions-=T
     set guioptions-=r
-    set guioptions-=L
+    "set guioptions-=L
     set guioptions+=a
     set guioptions-=m
     colo badwolf
@@ -257,6 +257,11 @@ nmap <Leader>p "+p
 nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
+
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <ESC>"+pa
 
 "==========================================================================="
 " Double learder for selection whole line
@@ -628,14 +633,6 @@ map <Leader>hof :%!xxd -r<CR>
 map <leader>td <Plug>TaskList
 
 " ========================================================================================
-" " USING GUNDO (revision of history saving)
-
-map <leader>gu :GundoToggle<CR>
-let g:gundo_width = 60
-let g:gundo_preview_height = 40
-let g:gundo_right = 1
-
-" ========================================================================================
 " " Resize split window horizontally and vertically
 " Shortcuts to Shift-Alt-Up - Alt is mapped as M in vim
 nmap <S-M-Up> :2winc+<cr>
@@ -695,13 +692,6 @@ nnoremap <silent> p p`]
 " ========================================================================================
 " " Quickly select text which I just pasted  
 noremap gV `[v`]
-
-" ========================================================================================
-" VIM-expand-region  plugin 
-" https://github.com/terryma/vim-expand-region   
-" 
-vmap v <Plug>(expand_region_expand)
-vmap r <Plug>(expand_region_shrink) 
 
 " ========================================================================================
 " VIM-airline  plugin 
@@ -827,40 +817,6 @@ iabbr **/ **********************************************************************
 iabbr //- //-----------------------------------------------------------------------
 
 " " ========================================================================================
-" " Easy motion configuration 
-" "
-" " <Leader>f{char} to move to {char}
-" map  <Leader><Leader>f <Plug>(easymotion-bd-f)
-" nmap <Leader><Leader>f <Plug>(easymotion-overwin-f)
-" 
-" " s{char}{char} to move to {char}{char}
-nmap s <Plug>(easymotion-overwin-f2)
-" 
-" " Move to line
-" map <Leader><Leader>l <Plug>(easymotion-bd-jk)
-" nmap <Leader><Leader>l <Plug>(easymotion-overwin-line)
-" 
-" " Move to word
-" " map  <Leader><Leader>w <Plug>(easymotion-bd-w)
-" " nmap <Leader><Leader>w <Plug>(easymotion-overwin-w)
-"
-"
-map  <leader>/ <Plug>(easymotion-sn)
-omap <leader>/ <Plug>(easymotion-tn)
-" " ========================================================================================
-" vimwiki configuration
-let g:vimwiki_list = [{'path': '/var/www/html/vimsite', 'path_html': '/var/www/html/vimhtml'}]
-"<leader>ww - iopen wiki in current tab
-"<leader>wt - iopen wiki in new tab
-
-" " ========================================================================================
-" vimwiki configuration
-"<leader>rr - browse using ranger in current tab
-"<leader>rt - browser using ranger in new tab
-"<leader>rv - browser using ranger in tab splitted vertically
-"<leader>rs - browser using ranger in tab splitted horizontally
-
-" " ========================================================================================
 " run command conriguration
 let g:vim_run_command_map = {
   \'javascript': 'node',
@@ -942,17 +898,6 @@ endif
 
 map <leader>gr :grep <C-R><C-w><CR><CR><CR>
 vmap <leader>gr :grep <C-R><C-w><CR><CR><CR>
-
-" " ========================================================================================
-" make vim working as tailf
-function! Tailf()
-    e
-    normal G
-    redraw
-
-    sleep 1
-    call Tailf()
-endfunction
 
 " ======================================================================================== 
 " add fzf plugin to runtimepath
