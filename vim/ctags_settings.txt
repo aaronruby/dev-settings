@@ -1,0 +1,8 @@
+ctags_settings.txt
+
+:Author: aruby
+:Email: aruby@aruby-dell
+:Date: 2018-08-16 16:25
+
+https://stackoverflow.com/questions/33676829/vim-configuration-for-linux-kernel-development
+

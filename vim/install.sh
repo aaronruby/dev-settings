@@ -5,6 +5,8 @@
 #
 #
 
+sudo apt-get install vim-gtk3
+
 git clone https://github.com/xmementoit/vim-ide.git
 cd vim-ide
 
