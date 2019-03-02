@@ -1,27 +1,24 @@
-#! /bin/bash
-#
 # install.sh
-# Copyright (C) 2018 aruby <aruby@aruby-ubuntu>
+# 
+# Install script for my Vim settings
+# Aaron Ruby, 2019
 #
-#
 
-sudo apt-get install vim-gtk3
+# Install pathogen Vim package manager
+mkdir -p ~/.vim/autoload ~/.vim/bundle
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
-git clone https://github.com/xmementoit/vim-ide.git
-cd vim-ide
+# Install vim-airline
+git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
+# Install vim-airline-themes
+git clone https://github.com/vim-airline/vim-airline-themes ~/.vim/bundle/vim-airline-themes
 
-# Get rid of bundles that we don't want 
-rm -rf bundle/minibufexpl
-rm -rf bundle/vim-lawrencium
-rm -rf bundle/vim-fugitive
-rm -rf bundle/gundo
-rm -rf bundle/vim-easymotion
-rm -rf bundle/yankring
-rm -rf bundle/snipmate
+# Install nerd-tree
+git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 
-rm -rf bundle/vim-expand-region
-rm -rf bundle/vimwiki
+# Vim fugitive
+git clone https://github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive
 
-cp ../vimrc vimrc
-./installVim.sh
+# Copy the vimrc
+cp vimrc ~/.vimrc
 
